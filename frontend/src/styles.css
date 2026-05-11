@@ -1,0 +1,226 @@
+:root {
+  color: #f6f1e8;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(242, 157, 82, 0.2), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgba(87, 182, 255, 0.16), transparent 24%),
+    linear-gradient(140deg, #0c1016 0%, #16212b 46%, #241813 100%);
+  font-family: "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: transparent;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.appShell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(320px, 1.3fr) repeat(2, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 22px;
+}
+
+.panel {
+  background: rgba(9, 14, 21, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(16px);
+}
+
+.panel--stacked,
+.heroPanel {
+  display: grid;
+  align-content: start;
+  gap: 18px;
+}
+
+.heroPanel {
+  grid-row: span 2;
+}
+
+.eyebrow,
+.sectionHeader span,
+.infoCard span,
+.layerMeter__header span:first-child,
+.moodComposer span,
+.status,
+.lede,
+.spotlightCard span,
+.spotlightCard small {
+  color: rgba(246, 241, 232, 0.72);
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 0.94;
+}
+
+h2 {
+  font-size: 1.08rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 12px;
+}
+
+.controls,
+.sectionHeader,
+.layerMeter__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 700;
+  background: linear-gradient(90deg, #f29d52, #ff6f61);
+  color: #111;
+  cursor: pointer;
+}
+
+button.secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f6f1e8;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.moodComposer {
+  display: grid;
+  gap: 10px;
+}
+
+.moodComposer input {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 13px 15px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #f6f1e8;
+}
+
+.heroStats,
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.spotlightCard,
+.infoCard {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.spotlightCard--accent {
+  background: linear-gradient(135deg, rgba(242, 157, 82, 0.18), rgba(87, 182, 255, 0.1));
+  border-color: rgba(242, 157, 82, 0.24);
+}
+
+.spotlightCard strong,
+.infoCard strong {
+  font-size: 1.08rem;
+}
+
+.meters {
+  display: grid;
+  gap: 14px;
+}
+
+.tokenGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tokenPill {
+  max-width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(87, 182, 255, 0.12);
+  border: 1px solid rgba(87, 182, 255, 0.2);
+  color: #e8f4ff;
+  font-size: 0.78rem;
+  overflow-wrap: anywhere;
+}
+
+.layerMeter {
+  display: grid;
+  gap: 10px;
+}
+
+.layerMeter__track {
+  height: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.layerMeter__fill {
+  height: 100%;
+  transition: width 0.08s linear;
+  box-shadow: 0 0 24px rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 1200px) {
+  .appShell {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .heroPanel {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .appShell {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .panel {
+    padding: 20px;
+  }
+
+  .heroStats,
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+}

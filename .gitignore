@@ -1,0 +1,84 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Backend model weights and generated ML artifacts
+backend/model/**/*.bin
+backend/model/**/*.ckpt
+backend/model/**/*.h5
+backend/model/**/*.joblib
+backend/model/**/*.onnx
+backend/model/**/*.pkl
+backend/model/**/*.pt
+backend/model/**/*.pth
+backend/model/**/*.safetensors
+backend/model/**/checkpoint-*/
+backend/models/**/*.bin
+backend/models/**/*.ckpt
+backend/models/**/*.h5
+backend/models/**/*.joblib
+backend/models/**/*.onnx
+backend/models/**/*.pkl
+backend/models/**/*.pt
+backend/models/**/*.pth
+backend/models/**/*.safetensors
+backend/models/**/checkpoint-*/
+
+# Data, logs, and generated outputs
+data/
+datasets/
+outputs/
+runs/
+logs/
+*.log
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Frontend dependencies and builds
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+frontend/.turbo/
+frontend/coverage/
+
+# Node package manager caches
+.npm/
+.pnpm-store/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Temporary files
+tmp/
+temp/
+*.tmp
