@@ -1,0 +1,16 @@
+{
+    "epoch": 3.0,
+    "eval_ccc": 0.8200111389160156,
+    "eval_ccc_a": 0.8260581493377686,
+    "eval_ccc_v": 0.8139641284942627,
+    "eval_loss": 0.011219619773328304,
+    "eval_mae": 0.07578354701399803,
+    "eval_mae_a": 0.06799038499593735,
+    "eval_mae_v": 0.08357670903205872,
+    "eval_pearson": 0.8262367762438468,
+    "eval_pearson_a": 0.832929330640596,
+    "eval_pearson_v": 0.8195442218470976,
+    "eval_runtime": 7.1508,
+    "eval_samples_per_second": 997.231,
+    "eval_steps_per_second": 31.185
+}
