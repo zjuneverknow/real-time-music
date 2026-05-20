@@ -50,6 +50,8 @@ datasets/
 outputs/
 runs/
 logs/
+backend/logs/
+backend/training/data/
 *.log
 *.zip
 *.tar

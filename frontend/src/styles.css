@@ -18,7 +18,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -122,13 +123,18 @@ button:disabled {
   gap: 10px;
 }
 
-.moodComposer input {
+.moodComposer input,
+.moodComposer select {
   width: 100%;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 13px 15px;
   background: rgba(255, 255, 255, 0.06);
   color: #f6f1e8;
+}
+
+.moodComposer option {
+  color: #111;
 }
 
 .heroStats,
@@ -178,6 +184,12 @@ button:disabled {
   color: #e8f4ff;
   font-size: 0.78rem;
   overflow-wrap: anywhere;
+}
+
+.feedbackGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
 .layerMeter {

@@ -6,6 +6,14 @@ export const PLAYER_CONFIG = [
 
 export const DEFAULT_MOOD = "happy";
 
+export const SCENE_OPTIONS = [
+  { id: "none", label: "No Scene" },
+  { id: "study_room", label: "Study Room" },
+  { id: "rainy_night", label: "Rainy Night" },
+  { id: "creative_room", label: "Creative Room" },
+  { id: "workout", label: "Workout" },
+];
+
 export const DEFAULT_SESSION = {
   connection: "connecting",
   source: "default",
@@ -24,6 +32,26 @@ export const DEFAULT_SESSION = {
   },
   controlTokens: [],
   vaTracker: null,
+  rawUserState: null,
+  structuredUserState: null,
+  userProfile: null,
+  sceneState: {
+    scene_id: "none",
+    scene_type: "none",
+  },
+  selectedPolicy: null,
+  finalControlState: null,
+  evaluation: {
+    note_density: 0,
+    mean_pitch: 0,
+    interval_volatility: 0,
+    chord_tone_ratio: 0,
+    scale_tone_ratio: 0,
+    skeleton_coverage: 0,
+    density_error: 0,
+    pitch_error: 0,
+    volatility_error: 0,
+  },
   harmony: {
     key: "C",
     mode: "minor",

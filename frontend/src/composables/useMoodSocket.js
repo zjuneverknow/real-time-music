@@ -7,6 +7,8 @@ export function useMoodSocket(options = {}) {
     onSessionState = () => {},
     onMelodyBar = () => {},
     onMoodAck = () => {},
+    onFeedbackAck = () => {},
+    onSceneAck = () => {},
   } = options;
 
   const mood = ref(DEFAULT_MOOD);
@@ -38,6 +40,16 @@ export function useMoodSocket(options = {}) {
 
       if (message.type === "mood_ack") {
         onMoodAck(message);
+        return;
+      }
+
+      if (message.type === "feedback_ack") {
+        onFeedbackAck(message);
+        return;
+      }
+
+      if (message.type === "scene_ack") {
+        onSceneAck(message);
       }
     };
 
@@ -55,19 +67,40 @@ export function useMoodSocket(options = {}) {
     wsRef.value?.close();
   });
 
-  function pushMood() {
+  function send(message) {
     if (wsRef.value?.readyState !== WebSocket.OPEN) {
-      onStatusChange("Socket not ready, so the mood prompt cannot be sent yet.");
-      return;
+      onStatusChange("Socket not ready, so the message cannot be sent yet.");
+      return false;
     }
 
-    wsRef.value.send(JSON.stringify({ mood: mood.value }));
+    wsRef.value.send(JSON.stringify(message));
+    return true;
+  }
+
+  function pushMood(sceneId = "none") {
+    if (!send({ type: "mood", mood: mood.value, scene_id: sceneId })) {
+      return;
+    }
     onStatusChange("Mood prompt sent. New Melody control is immediate; Harmony will refresh on the next phrase.");
+  }
+
+  function pushScene(sceneId) {
+    if (send({ type: "scene_update", scene_id: sceneId })) {
+      onStatusChange("Scene update sent. The next bars will use the new scene bias.");
+    }
+  }
+
+  function pushFeedback(feedbackType, like = null) {
+    if (send({ type: "feedback", feedback_type: feedbackType, like })) {
+      onStatusChange(`Feedback sent: ${feedbackType}.`);
+    }
   }
 
   return {
     mood,
     connectionState,
     pushMood,
+    pushScene,
+    pushFeedback,
   };
 }
